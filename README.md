@@ -24,4 +24,4 @@ Aktuell werden **keine** Contributer gesucht.
 
 ## License
 
-*Hier könnte Ihre Werbung stehen...*
+~~Hier könnte Ihre Werbung stehen...~~
