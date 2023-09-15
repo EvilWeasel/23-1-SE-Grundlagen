@@ -1,6 +1,5 @@
 ﻿#region Variablen
 // Variablen Deklaration
-using System.Text.Json.Nodes;
 
 string name;
 int age;
@@ -8,7 +7,7 @@ object random;
 float height;
 // Variablen sind erst nach einer Deklaration verwendbar
 
-// Console.WriteLine(age); => Funktioniert erst nach der Initialisierung
+//Console.WriteLine(age); => Funktioniert erst nach der Initialisierung
 
 // Variablen Initialisierung / Assignment
 name = "Default";
@@ -58,17 +57,28 @@ string greeting = "Hello World!";
 #region WerteVsReferenz-Typen
 int num1 = 10;
 
-string mystring = "testme";
+int[] array1 = { 1, 2, 3 };
+
+Console.WriteLine("Vor Modify");
+Console.WriteLine("num1: " + num1);
+Console.WriteLine("array1: " + string.Join(',', array1));
+// num1 = 10
+// array[0] = 1
+Modify(num1, array1);
+// num1 = 10
+// array[0] = 100
+Console.WriteLine("Nach Modify");
+Console.WriteLine("num1: " + num1);
+Console.WriteLine("array1: " + string.Join(',', array1));
 
 
-var num2 = num1;
-
-var mystring2 = mystring;
-
-num1 = num1 + 1;
-mystring = mystring + " mememe";
-
-Console.WriteLine(num2);
-Console.WriteLine(mystring2);
-
+void Modify(int num, int[] array)
+{
+  num = 100;
+  array[0] = 100;
+}
 #endregion
+
+
+
+

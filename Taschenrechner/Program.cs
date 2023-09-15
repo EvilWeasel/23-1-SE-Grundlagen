@@ -1,12 +1,12 @@
-﻿int GetNumber()
+﻿decimal GetNumber()
 {
-  int num = 0;
+  decimal num = 0;
   bool checkNumer = false;
   do
   {
     Console.WriteLine("Gebe eine Zahl ein");
     string input = Console.ReadLine();
-    checkNumer = int.TryParse(input, out num);
+    checkNumer = decimal.TryParse(input, out num);
 
     if (checkNumer == false)
     {
@@ -38,7 +38,7 @@ string GetOperation()
   return operation;
 }
 
-int Calculate(int num1, int num2, string operation)
+decimal Calculate(decimal num1, decimal num2, string operation)
 {
   switch (operation)
   {
@@ -49,6 +49,11 @@ int Calculate(int num1, int num2, string operation)
     case "*":
       return num1 * num2;
     case "/":
+      if (num2 == 0)
+      {
+        Console.WriteLine("Ungültige Operation: Teilen durch null nicht erlaubt!");
+        return 0;
+      }
       return num1 / num2;
     default:
       Console.WriteLine("Ungültige Operation: Mögliche Werte sind + - * /");
@@ -58,21 +63,30 @@ int Calculate(int num1, int num2, string operation)
 
 
 Console.WriteLine("Willkommen beim Taschenrechner 3000");
-// Get User-Input
-var num1 = GetNumber();
-var num2 = GetNumber();
-var operation = GetOperation();
+while (true)
+{
+  // Get User-Input
+  var num1 = GetNumber();
+  var num2 = GetNumber();
+  var operation = GetOperation();
+
+  // Calculate result
+  var result = Calculate(num1, num2, operation);
+
+  // Display Output
+  Console.WriteLine($"{num1} {operation} {num2} = {result}");
+  Console.WriteLine("Drücke beliebige Taste für weitere Berechnungen, oder beende das Programm mit Strg+C");
+  Console.ReadKey();
+  Console.Clear();
+}
 
 
-var result = Calculate(num1, num2, operation);
 
-Console.WriteLine($"{num1} {operation} {num2} = {result}");
-
-// Entweder (Var), Oder (Datentyp eg. string, int, float, decimal,...)
+// Entweder (Var), Oder (Datentyp eg. string, decimal, float, decimal,...)
 //string test1 = "Buxtehude";
-//int test2 = 69;
+//decimal test2 = 69;
 //var test3 = "Buxtehude";
 //test3 = 69;
-//var int x = 420; // "Var" ist nicht kombinierbar mit Datentypenangaben
+//var decimal x = 420; // "Var" ist nicht kombinierbar mit Datentypenangaben
 
 // var res = Calculate(10, 20, "%"); => So könnte die Funktion mit einem falschen Wert aufgerufen werden..
