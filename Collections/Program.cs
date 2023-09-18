@@ -35,7 +35,7 @@ names.Add("Fatih Oezhan");
 names.Add("Mustafa Kendo");
 names.Add("Alexander Lorengel");
 names.Add("Alexander Mulholland");
-names.Add("Isabell Oehm");
+names.Add("Isabell Oehme");
 
 Console.WriteLine(string.Join(", ", names));
 
@@ -58,6 +58,7 @@ intList.Sort();
 Console.WriteLine(string.Join(", ", intList));
 
 Console.WriteLine("FOR-EACH");
+
 foreach(var name in names)
 {
   Console.WriteLine(name);
