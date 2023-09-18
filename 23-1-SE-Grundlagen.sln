@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Collections", "Collections\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjektStruktur", "ProjektStruktur\ProjektStruktur.csproj", "{A0C98A0E-FD52-4465-AF41-CF5F9327B282}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnet-cli", "dotnet-cli\dotnet-cli.csproj", "{25DB8FA4-8914-4F49-A316-D58CC7348E65}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{A0C98A0E-FD52-4465-AF41-CF5F9327B282}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0C98A0E-FD52-4465-AF41-CF5F9327B282}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0C98A0E-FD52-4465-AF41-CF5F9327B282}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25DB8FA4-8914-4F49-A316-D58CC7348E65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25DB8FA4-8914-4F49-A316-D58CC7348E65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25DB8FA4-8914-4F49-A316-D58CC7348E65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25DB8FA4-8914-4F49-A316-D58CC7348E65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
