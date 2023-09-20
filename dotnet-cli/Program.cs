@@ -16,3 +16,14 @@ for (int i = 0; i < randomNumbers.Length; i++)
 }
 
 Console.WriteLine(string.Join(", ", randomNumbers));
+
+//while (true) 
+//{
+//  if ("test" == "test")
+//  {
+//    break;
+//  }
+//
+//
+//  Console.WriteLine("test");
+//}

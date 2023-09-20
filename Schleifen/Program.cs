@@ -1,10 +1,10 @@
 ﻿Console.WriteLine("Schleifen-Demo");
-int iterCount = 10;
+int iterCount = 0;
 
-while (iterCount > 0)
+while (iterCount > 10)
 {
   Console.WriteLine("WHILE");
-  iterCount = iterCount - 1;
+  iterCount = iterCount + 1;
   //iterCount--;
   // --iterCount; !! ACHTUNG: Nicht das gleiche! Mit vorsicht genießen.
 }
@@ -14,6 +14,7 @@ do
 {
   Console.WriteLine("DO-WHILE");
   iterCount--;
+  //iterCount = iterCount - 1;
 } while (iterCount > 0);
 
 
