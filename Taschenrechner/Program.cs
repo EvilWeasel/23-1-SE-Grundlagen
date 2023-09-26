@@ -1,4 +1,13 @@
-﻿decimal GetNumber()
+﻿namespace Taschenrechner;
+
+internal class Program
+{
+  static void Main(string[] args)
+  {
+
+  }
+}
+decimal GetNumber()
 {
   decimal num = 0;
   bool checkNumer = false;
