@@ -32,5 +32,23 @@ internal class Program
     Cat.Schnurren();
     Console.WriteLine(jerry);
     Console.ReadLine();
+
+
+    // fields vs properties
+    Dog myDoggo = new Dog(0, "fifi", "white", 3);
+    var myDoggo2 = new Dog(1, "susi", "black", 5);
+    Dog myDoggo3 = new(2, "maria", "golden", 10);
+    myDoggo.Wuff();
+
+    myDoggo.name = "fritz";
+    myDoggo.Id = 1;
+    Console.WriteLine(myDoggo.Id);
+    // myDoggo.Age = 10; -> Init only: nur im Konstruktor
+    Console.WriteLine(myDoggo.Age);
+
+    Console.WriteLine("****************");
+    Console.WriteLine(myDoggo.Color);
+    myDoggo.Color = "yellow";
+    Console.WriteLine(myDoggo.Color);
   }
 }
