@@ -10,8 +10,21 @@
  *            Prüfe Buchstabe aus guess gleich Buchstabe in solutionWord:
  *                Wahr:
  */
+var solutionWordList = new List<string>();
+using (var reader = new StreamReader(@"C:\\Users\\Tobia\\source\\repos\\23-1-SE-Grundlagen\\Wörtel\\words\\valid_solutions.csv"))
+{
+  while (reader.EndOfStream == false)
+  {
+    var line = reader.ReadLine();
+    solutionWordList.Add(line);
+  }
+}
 
-var solutionWord = "HOTEL";
+Random rng = new Random();
+var nextSolutionIndex = rng.Next(0, solutionWordList.Count);
+
+var solutionWord = solutionWordList[nextSolutionIndex];
+solutionWord = solutionWord.ToUpper();
 
 string guess;
 
