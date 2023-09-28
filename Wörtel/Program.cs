@@ -1,43 +1,16 @@
-﻿/*
- * Programmstart:
- * 
- * Definiere solutionWord als das zu erratende Wort fest
- * 
- * Schleife:
- *    Definiere guess und speicher das vom User eingegebene Wort
- *    Schleife für jeden Buchstaben im guess:
- *        Schleife für jeden Buchstaben im solutionWord:
- *            Prüfe Buchstabe aus guess gleich Buchstabe in solutionWord:
- *                Wahr:
- */
-var solutionWordList = new List<string>();
-using (var reader = new StreamReader(@"C:\\Users\\Tobia\\source\\repos\\23-1-SE-Grundlagen\\Wörtel\\words\\valid_solutions.csv"))
-{
-  while (reader.EndOfStream == false)
-  {
-    var line = reader.ReadLine();
-    solutionWordList.Add(line);
-  }
-}
+﻿var projectPath = Directory.GetCurrentDirectory();
+var csvPath = Path.Combine(projectPath, @"..\..\..\words\valid_solutions.csv");
+var solutionWordList = GetSolutionsFromFile(csvPath);
 
-Random rng = new Random();
-var nextSolutionIndex = rng.Next(0, solutionWordList.Count);
+var solutionWord = PickSolution(solutionWordList);
 
-var solutionWord = solutionWordList[nextSolutionIndex];
-solutionWord = solutionWord.ToUpper();
 
 string guess;
-
 while (true)
 {
-  Console.WriteLine("Errate das 5-Stellige Wort");
-  guess = Console.ReadLine();
-  guess = guess.ToUpper();
-  if (guess.Length != 5) continue;
+  guess = GetGuess("Errate das 5-Stellige Wort");
+  
 
-
-  // Gedankenspiel
-  // Rooms
   /* Todo:
    - Groß- und Kleinschreibung :Done
    - Farbe zurücksetzen nach Ausgabe :Done
@@ -59,11 +32,39 @@ while (true)
   Console.BackgroundColor= ConsoleColor.Black;
   Console.ForegroundColor = ConsoleColor.White;
   Console.WriteLine();
-  //int i = 0;
-  //while (0 < guess.Length)
-  //{
-  //  var c = guess[i];
-  //  // dein code...
-  //  i++;
-  //}
+}
+
+List<string> GetSolutionsFromFile(string path)
+{
+  var solutions = new List<string>();
+
+  using (var reader = new StreamReader(path))
+  {
+    while (reader.EndOfStream == false)
+    {
+      var line = reader.ReadLine();
+      solutions.Add(line);
+    }
+  }
+
+  return solutions;
+}
+
+string PickSolution(List<string> solutionWordList)
+{
+  Random rng = new Random();
+  var nextSolutionIndex = rng.Next(0, solutionWordList.Count);
+
+  var solutionWord = solutionWordList[nextSolutionIndex];
+  solutionWord = solutionWord.ToUpper();
+  return solutionWord;
+}
+
+string GetGuess(string prompt)
+{
+  Console.WriteLine(prompt);
+  guess = Console.ReadLine();
+  guess = guess.ToUpper();
+  if (guess.Length != 5) GetGuess(prompt);
+  return guess;
 }
