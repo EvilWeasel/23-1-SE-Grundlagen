@@ -19,29 +19,33 @@ while (true)
 {
   Console.WriteLine("Errate das 5-Stellige Wort");
   guess = Console.ReadLine();
+  guess = guess.ToUpper();
   if (guess.Length != 5) continue;
-
-  //foreach (char c in guess)
-  //{
-  //  if (solutionWord.Contains(c))
-  //    Console.BackgroundColor = ConsoleColor.Yellow;
-  //  if (/* ... */)
-  //    Console.BackgroundColor = ConsoleColor.Green;
-  //  Console.WriteLine($"{c}");
-  //}
 
 
   // Gedankenspiel
-
+  // Rooms
+  /* Todo:
+   - Groß- und Kleinschreibung :Done
+   - Farbe zurücksetzen nach Ausgabe :Done
+   - Vordergrundfarbe auf Schwarz ändern; Default Background vielleicht weiß? :Done
+   - Ausgabe in einer Zeile :Done
+   - Wenn einmal vorkommender Buchstabe im guess zweimal vorkommt, darf das zweite Vorkommen nicht Gelb sein
+   - Versuche zählen und User Feedback geben ob er das Wort erraten hat oder er alle Versuche verbraten hat
+   */
+  Console.ForegroundColor = ConsoleColor.Black;
   for (int i = 0; i < guess.Length; i++)
   {
+    Console.BackgroundColor = ConsoleColor.White;
     if (solutionWord.Contains(guess[i]))
       Console.BackgroundColor = ConsoleColor.Yellow;
     if (solutionWord[i] == guess[i])
       Console.BackgroundColor = ConsoleColor.Green;
-    Console.WriteLine($"{guess[i]}");
+    Console.Write($"{guess[i]}");
   }
-
+  Console.BackgroundColor= ConsoleColor.Black;
+  Console.ForegroundColor = ConsoleColor.White;
+  Console.WriteLine();
   //int i = 0;
   //while (0 < guess.Length)
   //{
